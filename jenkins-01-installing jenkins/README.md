@@ -72,20 +72,20 @@ sudo yum install git -y
 - Add Jenkins repo to the `yum` repository.
 
 ```bash
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
 ```
 
 - Import a key file from Jenkins-CI to enable installation from the package.
 
 ```bash
-sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 ```
 
-- Enable the EPEL repository for Amazon EC2 instance.
-
-```bash
-sudo amazon-linux-extras install epel -y
+sudo yum upgrade
 ```
+-Install Java (Amazon Linux 2023)
+sudo dnf install java-17-amazon-corretto -y
 
 - Install Jenkins.
 
@@ -118,6 +118,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 - Open your browser, get your ec2 instance Public IPv4 DNS and paste it at address bar with 8080. 
 "http://[ec2-public-dns-name]:8080"
+-As prompted, enter the password found in /var/lib/jenkins/secrets/initialAdminPassword.
+
+Use the following command to display this password:
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 - Enter the temporary password to unlock the Jenkins.
 
@@ -160,7 +164,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - Select `OK` option
 
 
-## Part 5 - Creating First Jenkins Job
+## Part 5 - Creating First Jenkins Job (2:14 te kaldım )
 
 - We will create a job in Jenkins which picks up a simple "Hello World" bash script and runs it. The freestyle build job is a highly flexible and easy-to-use option. To create a Jenkins freestyle job;
 
