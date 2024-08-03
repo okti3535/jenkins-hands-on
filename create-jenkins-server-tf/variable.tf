@@ -1,20 +1,18 @@
 //variable "aws_secret_key" {}
 //variable "aws_access_key" {}
 variable "region" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 variable "mykey" {
-  default = "alexd"
+  default = "clarus"
+  description = "write your key pair"
 }
 variable "tags" {
   default = "jenkins-server"
 }
-variable "myami" {
-  description = "amazon linux 2 ami"
-  default = "ami-0022f774911c1d690"
-}
+
 variable "instancetype" {
-  default = "t2.micro"
+  default = "t3a.medium"
 }
 
 variable "secgrname" {
